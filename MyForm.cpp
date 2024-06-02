@@ -1,11 +1,12 @@
 #include "MyForm.h"
-#include <Windows.h>
 
-using namespace NotepadForms;
+using namespace System;
 
-int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
-    Application::EnableVisualStyles();
-    Application::SetCompatibleTextRenderingDefault(false);
-    Application::Run(gcnew MyForm);
-    return 0;
+using namespace System::Windows::Forms;
+[STAThreadAttribute]
+void main(array<String^>^ args) {
+	Application::EnableVisualStyles();
+	Application::SetCompatibleTextRenderingDefault(false);
+	Practika::MyForm form;
+	Application::Run(% form);
 }
