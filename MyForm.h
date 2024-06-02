@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Practika {
+namespace NotepadForms {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -60,7 +60,7 @@ namespace Practika {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -221,50 +221,51 @@ namespace Practika {
 	private: System::Void newToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		textBox1->Text = "";
 	}
-private: System::Void openToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void exitToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	Application::Exit();
-}
-private: System::Void fileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void openFileDialog1_FileOk(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
-	if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK);
-	{
-	StreamReader^ sr = gcnew StreamReader(openFileDialog1->FileName);
-	textBox1->Text = sr->ReadToEnd();
-	sr->Close();
+	private: System::Void openToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			StreamReader^ sr = gcnew StreamReader(openFileDialog1->FileName);
+			textBox1->Text = sr->ReadToEnd();
+			sr->Close();
+		}
 	}
-}
-private: System::Void saveFileDialog1_FileOk(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
-}
-private: System::Void fontToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (fontDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
-	{
-		textBox1->Font = fontDialog1->Font;
+	private: System::Void exitToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
 	}
-}
-private: System::Void fontColorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (colorDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
-	{
-		textBox1->ForeColor = colorDialog1->Color;
+	private: System::Void fileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-}
-private: System::Void backgroundColorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (colorDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
-	{
-		textBox1->BackColor = colorDialog1->Color;
+	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-}
-private: System::Void saveToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK);
-	{
-		StreamWriter^ sw = gcnew StreamWriter(saveFileDialog1->FileName);
-		sw->Write(textBox1->Text);
-		sw->Close();
+	private: System::Void openFileDialog1_FileOk(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
+		
 	}
-}
-};
+	private: System::Void saveFileDialog1_FileOk(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
+	}
+	private: System::Void fontToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (fontDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			textBox1->Font = fontDialog1->Font;
+		}
+	}
+	private: System::Void fontColorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (colorDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			textBox1->ForeColor = colorDialog1->Color;
+		}
+	}
+	private: System::Void backgroundColorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (colorDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			textBox1->BackColor = colorDialog1->Color;
+		}
+	}
+	private: System::Void saveToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			StreamWriter^ sw = gcnew StreamWriter(saveFileDialog1->FileName);
+			sw->Write(textBox1->Text);
+			sw->Close();
+		}
+	}
+	};
 }
